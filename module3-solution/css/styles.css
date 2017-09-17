@@ -1,0 +1,19 @@
+#nav-list{
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	background-color: #00bfff;	
+}
+
+#nav-list li{
+	border-top: solid 1px;
+	border-bottom: solid 1px;
+}
+
+section{
+	background-color: #ffff00;	
+}
+
+.row a {
+	text-decoration: underline;
+}

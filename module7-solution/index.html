@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Shopping List Check Off</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="styles/bootstrap.min.css">
+		<link rel="stylesheet" href="styles/style.css">
+		<style>
+		  .emptyMessage {
+			font-weight: bold;
+			color: red;
+			font-size: 1.2em;
+		  }
+		  li {
+			margin-bottom: 7px;
+			font-size: 1.2em;
+		  }
+		  li > button {
+			margin-left: 6px;
+		  }
+		  button > span {
+			color: green;
+		  }
+		</style>
+	</head>
+	<body ng-app="ShoppingListCheckOff">
+		<div class="container">
+			<h1>Shopping List Check Off</h1>
+
+			<div class="row">
+				<!-- To Buy List -->
+				<div class="col-md-6">
+					<h2>To Buy:</h2>
+					
+					<div ng-controller='ToBuyController as toBuyList'>
+						<div ng-if="toBuyList.toBuy.length == 0" class="emptyMessage">Everything is bought!</div>
+						<ul>
+						    <li ng-repeat="item in toBuyList.toBuy">
+								<div class="col1">
+									Buy {{item.quantity}} {{item.name}} at ${{item.pricePerItem}}
+								</div>
+								<div class="col2">
+									<input type="text" placeholder="Enter Quantity" class="form-control" ng-model="item.quantity">
+								</div>
+								<div class="col3">
+									<button ng-click="toBuyList.removeItemBuy($index);" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button>
+								</div>
+							</li>
+						</ul>
+					</div>	
+				</div>
+				
+				<!-- Already Bought List -->
+				<div class="col-md-6">
+					<h2>Already Bought:</h2>
+					
+					<div ng-controller="AlreadyBoughtController as boughtList">
+						<div ng-if="boughtList.bought.length == 0" class="emptyMessage">Nothing bought yet</div>
+						<ul>
+							<li ng-repeat="item in boughtList.bought">
+								Bought {{item.quantity}} {{item.name}} for total price of {{ item.pricePerItem * item.quantity | custom : '$$$' : '.00'}}
+							</li>
+						</ul>
+					</div>	
+				</div>
+			</div>
+		</div>
+		<script src="angular.min.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>

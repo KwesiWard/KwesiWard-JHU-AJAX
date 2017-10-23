@@ -1,0 +1,15 @@
+/********** CSS styles **********/
+
+.col1 {
+	width: 36%;
+	display: inline-block;
+}
+
+.col2 {
+	width: 12%;
+	display: inline-block;
+}
+.col3 {
+	width: 2%;
+	display: inline-block;
+}

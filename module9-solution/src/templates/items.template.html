@@ -1,0 +1,22 @@
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Short Name</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Small Price</th>
+		<th>Large Price</th>
+		<th>Small Portion Name</th>
+		<th>Large Portion Name</th>
+	</tr>
+	<tr ng-repeat="item in $ctrl.items">
+		<td>{{ item.id }}</td>
+		<td>{{ item.shortName }}</td>
+		<td>{{ item.name }}</td>
+		<td>{{ item.description }}</td>
+		<td>{{ item.smallPrice }}</td>
+		<td>{{ item.largePrice }}</td>
+		<td>{{ item.smallPortionName }}</td>
+		<td>{{ item.largePortionName }}</td>
+	</tr>
+</table>

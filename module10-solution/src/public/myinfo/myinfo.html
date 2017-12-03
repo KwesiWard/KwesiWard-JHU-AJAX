@@ -1,0 +1,43 @@
+<div id="myinfo-content" class="container">
+
+	<div class="row">
+	    
+        <div ng-if="myInfoCtrl.promiseFlag == true"> 
+			<table class="table">
+			    <thead>
+					<tr>
+						<th>Firstname</th>
+						<th>Lastname</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Shortname</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{{myInfoCtrl.firstname}}</td>
+						<td>{{myInfoCtrl.lastname}}</td>
+						<td>{{myInfoCtrl.email}}</td>
+						<td>{{myInfoCtrl.phone}}</td>
+						<td>
+							{{myInfoCtrl.shortname}}
+							<br>
+							<img width="200" height="200" 
+							ng-src="https://kward.herokuapp.com/images/{{myInfoCtrl.shortname}}.jpg" 
+							alt="{{$myInfoCtrl.shortname}}">
+							<br>
+							{{myInfoCtrl.title}}
+							<br>
+							{{myInfoCtrl.description}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div ng-if="myInfoCtrl.promiseFlag == false">
+		    Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+		</div>
+	</div>	
+</div>
+

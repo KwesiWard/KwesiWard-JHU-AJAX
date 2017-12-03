@@ -1,0 +1,94 @@
+<div id="signup-content" class="container">
+	<div class="row">
+
+		<form name='signupForm' novalidate>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<input type="text" 
+				       name="firstname" 
+					   placeholder="Enter first name" 
+					   class="form-control" 
+					   ng-model="signupCtrl.firstname" 
+					   pattern="[a-zA-Z]+">
+			</div>
+			<div> 
+				<span ng-if="signupForm.firstname.$invalid && signupForm.firstname.$touched">
+					Only letters allowed. Try again!
+				</span>	
+			</div>
+			<br>
+			<br>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<input type="text" 
+				       name="lastname" 
+					   placeholder="Enter last name" 
+					   class="form-control" 
+					   ng-model="signupCtrl.lastname" 
+					   pattern="[a-zA-Z]+">
+			</div>
+			<div> 
+				<span ng-if="signupForm.lastname.$invalid && signupForm.lastname.$touched">
+					Only letters allowed. Try again!
+				</span>	
+			</div>
+			<br>
+			<br>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<input type="email" 
+					   name="email" 
+					   placeholder="Enter email"
+					   class="form-control"
+					   ng-model="signupCtrl.email"
+					   required>
+			</div>
+				<span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+					Must be a valid email address: handle@domain format. Try again!
+				</span>
+			<div>
+			</div>
+			<br>
+			<br>
+			<div class="col-md-12 col-sm-12 col-xs-12">			
+				<input type="text" 
+					   name="phone" 
+					   placeholder="Enter phone number: ###-###-####"
+					   class="form-control"
+					   ng-model="signupCtrl.phone"
+					   pattern="(\d{3})-(\d{3})-(\d{4})"
+					   required>
+			</div>
+			<div>
+				<span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+					Phone must be in the format ###-###-####. Try Again!
+				</span>	
+			</div>
+            <br>
+			<br>
+            <div class="col-md-12 col-sm-12 col-xs-12">			
+				<input type="text" 
+				       name="shortname" 
+					   placeholder="Enter menu number of your favorite dish"
+					   class="form-control"
+					   ng-model="signupCtrl.shortname"
+					   ng-blur="signupCtrl.shortname != undefined && signupCtrl.isFavoriteItem();"
+					   required>
+			</div>
+			<div>
+				<span ng-if="signupCtrl.promiseFlag == true">
+					Your information has been saved.	
+				</span>
+                <span ng-if="signupCtrl.promiseFlag == false">
+					{{signupCtrl.displayMessage}}	
+				</span>					
+			</div>
+			<br>
+            <br>
+            <div class="col-md-6 col-sm-6 col-xs-6">	
+				<button
+					ng-disabled="signupForm.$invalid && !signupCtrl.promiseFlag"
+					class="btn btn-default"
+					ng-click="signupCtrl.send();">Submit</button>
+			</div>			
+		</form>	
+	</div>	
+</div>
+

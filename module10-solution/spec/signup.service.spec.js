@@ -3,10 +3,10 @@ describe('signup', function () {
   var signup;
   var $httpBackend;
   var ApiBasePath;
-  var shortname;
+  var shortName = "A1";
 
   beforeEach(function () {
-    module('public');
+    module('common');
 
     inject(function ($injector) {
       signup = $injector.get('SignupService');
@@ -15,9 +15,9 @@ describe('signup', function () {
     });
   });
 
-  it('should return a menu item', function() {
-    $httpBackend.whenGET(ApiBasePath + "/menu_items/" + "A1" + ".json").respond("Testing...");
-    signup.validateFavoriteItem("A1").then(function(response) {
+  it('It should return a menu item', function() {
+    $httpBackend.whenGET(ApiBasePath + "/menu_items/" + shortName + ".json").respond("Testing...");
+    signup.validateFavoriteItem(shortName).then(function(response) {
       expect(response.data).toEqual("Testing...");
     });
     $httpBackend.flush();

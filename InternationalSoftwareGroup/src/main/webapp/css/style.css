@@ -1,0 +1,10 @@
+@CHARSET "ISO-8859-1";
+
+h3 {
+  color: #951C49;
+  text-align: center;
+}
+
+.centered{
+    margin: 0 auto;
+}

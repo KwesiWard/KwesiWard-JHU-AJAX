@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<Context path="/InternationalSoftwareGroup">
+     
+	<Resource name="jdbc/isg" 
+	                auth="Container" 
+	                maxActive="100"
+			  		username="root" 
+			  		password="password"
+			  		driverClassName="com.mysql.jdbc.Driver"
+			  		url="jdbc:mysql://localhost:3306/isg?autoReconnect=true"
+			  		logAbandoned="true" 
+			  		removeAbandoned="true"
+			  		removeAbandonedTimeout="60" 
+			  		type="javax.sql.DataSource"/>
+	     		  
+	<Realm className="org.apache.catalina.realm.DataSourceRealm" debug="99"
+		dataSourceName="jdbc/isg" localDataSource="true" 
+		userTable="userpass" userNameCol="Username" userCredCol="Password" 
+	    userRoleTable="UserRole" roleNameCol="Rolename" />	
+	  		  		  
+</Context>
+    
